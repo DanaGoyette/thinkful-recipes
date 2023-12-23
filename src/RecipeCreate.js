@@ -12,6 +12,8 @@ function RecipeCreate({ createRecipe }) {
   const [ingredients, setIngredients] = useState("");
   const [preparation, setPreparation] = useState("");
 
+  const buttonDisabled = !name || !cuisine || !ingredients || !preparation;
+
   const handleSubmit = (event) => {
     event.preventDefault();
     createRecipe({ name, cuisine, photo, ingredients, preparation });
@@ -21,6 +23,7 @@ function RecipeCreate({ createRecipe }) {
     setIngredients("");
     setPreparation("");
   };
+
   return (
     <form name="create" onSubmit={handleSubmit}>
       <table>
@@ -68,7 +71,9 @@ function RecipeCreate({ createRecipe }) {
               />
             </td>
             <td>
-              <button type="submit">Create</button>
+              <button type="submit" disabled={buttonDisabled}>
+                Create
+              </button>
             </td>
           </tr>
         </tbody>

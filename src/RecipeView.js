@@ -6,9 +6,7 @@ const RecipeView = ({ recipe, deleteRecipe }) => {
     <tr>
       <td>{name}</td>
       <td>{cuisine}</td>
-      <td>
-        <img src={photo} />
-      </td>
+      <td>{photo && <img src={photo} />}</td>
       <td className="content_td">
         <p>{ingredients}</p>
       </td>
